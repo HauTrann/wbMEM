@@ -38,6 +38,8 @@
     "enableTranslation": true,
     "nativeLanguage": "vi",
     "languages": ["vi", "en"],
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "medical-device-mng",
+    "herokuDeployType": "jar"
   }
 }

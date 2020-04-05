@@ -5,6 +5,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 const sass = require('sass');
 
@@ -114,7 +115,12 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
         new WebpackNotifierPlugin({
             title: 'JHipster',
             contentImage: path.join(__dirname, 'logo-jhipster.png')
-        })
+        }),
+      new WorkboxPlugin.GenerateSW({
+        clientsClaim: true,
+        skipWaiting: true,
+        exclude: [/swagger-ui/]
+      })
     ].filter(Boolean),
     mode: 'development'
 });

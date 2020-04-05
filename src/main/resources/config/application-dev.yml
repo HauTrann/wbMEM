@@ -37,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/MedicalDeviceMNG
-    username: MedicalDeviceMNG
-    password:
+    url: jdbc:postgresql://ec2-52-86-73-86.compute-1.amazonaws.com:5432/da8tr9frm61rpa
+    username: lllweodhrrmmmr
+    password: 247ce3c9a3b0d5c40776ca704c94261e46337baada4993d9c826a7ba70aeff0c
     hikari:
       poolName: Hikari
       auto-commit: false

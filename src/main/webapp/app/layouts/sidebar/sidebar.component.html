@@ -1,0 +1,49 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper" [class.hide-sidebar] = "!showSb">
+    <ul class="sidebar-nav">
+        <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="sidebar-brand">
+            <!--<a href="#" class="navbar-brand">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile
+            </a>-->
+            <!--<a class="navbar-brand" routerLink="department" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                <span jhiTranslate="global.menu.entities.department">Department</span>
+            </a>-->
+            <a href="#" class="not-active">
+                <b><span class="glyphicon glyphicon-search" aria-hidden="true"></span><font color="#337AB7"> ADMIN</font></b>
+            </a>
+        </li>
+        <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+            <a class="glyphicon glyphicon-home" routerLink="admin/user-management" routerLinkActive="active">
+                <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+            </a>
+        </li>
+        <li>
+            <!--            <a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>-->
+            <a class="glyphicon glyphicon-home" routerLink="department" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                <span jhiTranslate="global.menu.entities.department">Department</span>
+            </a>
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span><font color="#337AB7"> TRANG THIẾT BỊ Y TẾ</font>
+        </li>
+        <li>
+            <a routerLink="equipment-type"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Loại thiết bị</a>
+        </li>
+        <li>
+            <a routerLink="equipment"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Thiết bị</a>
+        </li>
+        <li>
+            <a routerLink="medical-supplies-type"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Loại vật tư</a>
+        </li>
+        <li>
+            <a routerLink="medical-supplies"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Vật tư</a>
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span><font color="#337AB7"> BÁO CÁO</font>
+        </li>
+        <li>
+            <a href="#"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Báo cáo</a>
+        </li>
+    </ul>
+</div>
+<!-- /#sidebar-wrapper -->

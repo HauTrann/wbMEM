@@ -16,7 +16,7 @@ Navbar
 }
 
 .navbar {
-  padding: 0.2rem 1rem;
+  padding: 0px;
 
   ul.navbar-nav {
     .nav-item {
@@ -39,4 +39,33 @@ Logo styles
   vertical-align: middle;
   background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
   background-size: contain;
+}
+
+.custom {
+  position: fixed;
+  z-index: 9000;
+  width: 100%;
+  top: 0px;
+  background-color: #2d2727 !important;
+  height: 55px;
+  padding-right: 10px;
+}
+
+.custom-dropdown-toggle {
+  width: 100%;
+  background-color: #2d2727 !important;
+}
+
+.hide {
+  visibility: hidden;
+  transition: 2s;
+  color: #a5a8aa;
+}
+
+@media (min-width: 768px) {
+  .hide {
+    visibility: visible;
+    transition: 2s;
+    color: #a5a8aa;
+  }
 }

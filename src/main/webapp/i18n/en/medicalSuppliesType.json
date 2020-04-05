@@ -1,0 +1,25 @@
+{
+  "medicalDeviceMngApp": {
+    "medicalSuppliesType": {
+      "home": {
+        "title": "Medical Supplies Types",
+        "createLabel": "Create a new Medical Supplies Type",
+        "createOrEditLabel": "Create or edit a Medical Supplies Type",
+        "notFound": "No Medical Supplies Types found"
+      },
+      "created": "A new Medical Supplies Type is created with identifier {{ param }}",
+      "updated": "A Medical Supplies Type is updated with identifier {{ param }}",
+      "deleted": "A Medical Supplies Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Supplies Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Supplies Type"
+      },
+      "code": "Code",
+      "name": "Name",
+      "description": "Description",
+      "status": "Status"
+    }
+  }
+}

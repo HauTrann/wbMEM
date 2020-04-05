@@ -4,20 +4,26 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd, NavigationError } from '
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { AccountService } from 'app/core/auth/account.service';
+import { JhiEventManager } from 'ng-jhipster';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'jhi-main',
-  templateUrl: './main.component.html'
+  templateUrl: './main.component.html',
+  styleUrls: ['main.scss']
 })
 export class MainComponent implements OnInit {
   private renderer: Renderer2;
+  showSideBar?: boolean = true;
+  eventSubscriberChangeSession?: Subscription;
 
   constructor(
     private accountService: AccountService,
     private titleService: Title,
     private router: Router,
     private translateService: TranslateService,
-    rootRenderer: RendererFactory2
+    rootRenderer: RendererFactory2,
+    private eventManager: JhiEventManager
   ) {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
   }
@@ -40,6 +46,8 @@ export class MainComponent implements OnInit {
 
       this.renderer.setAttribute(document.querySelector('html'), 'lang', langChangeEvent.lang);
     });
+
+    this.registerShowSidebar();
   }
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {
@@ -56,5 +64,11 @@ export class MainComponent implements OnInit {
       pageTitle = 'global.title';
     }
     this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
+  }
+
+  registerShowSidebar(): void {
+    this.eventSubscriberChangeSession = this.eventManager.subscribe('toggleNavbar', (response: { content: boolean | undefined }) => {
+      this.showSideBar = response.content;
+    });
   }
 }

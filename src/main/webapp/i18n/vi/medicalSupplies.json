@@ -1,0 +1,26 @@
+{
+  "medicalDeviceMngApp": {
+    "medicalSupplies": {
+      "home": {
+        "title": "Medical Supplies",
+        "createLabel": "Thêm mới một Medical Supplies",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Medical Supplies",
+        "notFound": "No Medical Supplies found"
+      },
+      "created": "Một Medical Supplies mới được tạo với định danh {{ param }}",
+      "updated": "Một Medical Supplies cập nhật với định danh {{ param }}",
+      "deleted": "Một Medical Supplies đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Medical Supplies {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Supplies"
+      },
+      "code": "Code",
+      "name": "Name",
+      "medicalSuppliesTypeID": "Medical Supplies Type ID",
+      "description": "Description",
+      "status": "Status"
+    }
+  }
+}

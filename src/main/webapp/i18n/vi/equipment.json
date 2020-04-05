@@ -1,0 +1,26 @@
+{
+  "medicalDeviceMngApp": {
+    "equipment": {
+      "home": {
+        "title": "Equipment",
+        "createLabel": "Thêm mới một Equipment",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Equipment",
+        "notFound": "No Equipment found"
+      },
+      "created": "Một Equipment mới được tạo với định danh {{ param }}",
+      "updated": "Một Equipment cập nhật với định danh {{ param }}",
+      "deleted": "Một Equipment đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Equipment {{ id }}?"
+      },
+      "detail": {
+        "title": "Equipment"
+      },
+      "code": "Code",
+      "name": "Name",
+      "equipmentTypeID": "Equipment Type ID",
+      "status": "Status",
+      "description": "Description"
+    }
+  }
+}
