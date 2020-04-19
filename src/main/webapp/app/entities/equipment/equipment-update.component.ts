@@ -21,7 +21,8 @@ export class EquipmentUpdateComponent implements OnInit {
     name: [],
     equipmentTypeID: [],
     status: [],
-    description: []
+    description: [],
+    qrcode: []
   });
 
   constructor(protected equipmentService: EquipmentService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -39,7 +40,8 @@ export class EquipmentUpdateComponent implements OnInit {
       name: equipment.name,
       equipmentTypeID: equipment.equipmentTypeID,
       status: equipment.status,
-      description: equipment.description
+      description: equipment.description,
+      qrcode: equipment.qrcode
     });
   }
 
@@ -65,7 +67,8 @@ export class EquipmentUpdateComponent implements OnInit {
       name: this.editForm.get(['name'])!.value,
       equipmentTypeID: this.editForm.get(['equipmentTypeID'])!.value,
       status: this.editForm.get(['status'])!.value,
-      description: this.editForm.get(['description'])!.value
+      description: this.editForm.get(['description'])!.value,
+      qrcode: this.editForm.get(['qrcode'])!.value
     };
   }
 

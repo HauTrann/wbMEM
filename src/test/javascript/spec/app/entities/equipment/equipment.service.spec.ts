@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(EquipmentService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Equipment(0, 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA');
+      elemDefault = new Equipment(0, 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -58,7 +58,8 @@ describe('Service Tests', () => {
             name: 'BBBBBB',
             equipmentTypeID: 1,
             status: 1,
-            description: 'BBBBBB'
+            description: 'BBBBBB',
+            qrcode: 'BBBBBB'
           },
           elemDefault
         );
@@ -79,7 +80,8 @@ describe('Service Tests', () => {
             name: 'BBBBBB',
             equipmentTypeID: 1,
             status: 1,
-            description: 'BBBBBB'
+            description: 'BBBBBB',
+            qrcode: 'BBBBBB'
           },
           elemDefault
         );

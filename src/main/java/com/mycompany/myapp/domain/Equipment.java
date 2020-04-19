@@ -111,20 +111,21 @@ public class Equipment implements Serializable {
         return this;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getQrcode() {
         return qrcode;
     }
 
-    public void setQrcode(String qrcode) {
+    public Equipment qrcode(String qrcode) {
         this.qrcode = qrcode;
+        return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -153,6 +154,7 @@ public class Equipment implements Serializable {
             ", equipmentTypeID=" + getEquipmentTypeID() +
             ", status=" + getStatus() +
             ", description='" + getDescription() + "'" +
+            ", qrcode='" + getQrcode() + "'" +
             "}";
     }
 }

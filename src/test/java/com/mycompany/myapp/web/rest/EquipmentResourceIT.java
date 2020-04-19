@@ -46,6 +46,9 @@ public class EquipmentResourceIT {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
+    private static final String DEFAULT_QRCODE = "AAAAAAAAAA";
+    private static final String UPDATED_QRCODE = "BBBBBBBBBB";
+
     @Autowired
     private EquipmentRepository equipmentRepository;
 
@@ -72,7 +75,8 @@ public class EquipmentResourceIT {
             .name(DEFAULT_NAME)
             .equipmentTypeID(DEFAULT_EQUIPMENT_TYPE_ID)
             .status(DEFAULT_STATUS)
-            .description(DEFAULT_DESCRIPTION);
+            .description(DEFAULT_DESCRIPTION)
+            .qrcode(DEFAULT_QRCODE);
         return equipment;
     }
     /**
@@ -87,7 +91,8 @@ public class EquipmentResourceIT {
             .name(UPDATED_NAME)
             .equipmentTypeID(UPDATED_EQUIPMENT_TYPE_ID)
             .status(UPDATED_STATUS)
-            .description(UPDATED_DESCRIPTION);
+            .description(UPDATED_DESCRIPTION)
+            .qrcode(UPDATED_QRCODE);
         return equipment;
     }
 
@@ -116,6 +121,7 @@ public class EquipmentResourceIT {
         assertThat(testEquipment.getEquipmentTypeID()).isEqualTo(DEFAULT_EQUIPMENT_TYPE_ID);
         assertThat(testEquipment.getStatus()).isEqualTo(DEFAULT_STATUS);
         assertThat(testEquipment.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testEquipment.getQrcode()).isEqualTo(DEFAULT_QRCODE);
     }
 
     @Test
@@ -153,7 +159,8 @@ public class EquipmentResourceIT {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].equipmentTypeID").value(hasItem(DEFAULT_EQUIPMENT_TYPE_ID.intValue())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS)))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+            .andExpect(jsonPath("$.[*].qrcode").value(hasItem(DEFAULT_QRCODE)));
     }
     
     @Test
@@ -171,7 +178,8 @@ public class EquipmentResourceIT {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.equipmentTypeID").value(DEFAULT_EQUIPMENT_TYPE_ID.intValue()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+            .andExpect(jsonPath("$.qrcode").value(DEFAULT_QRCODE));
     }
 
     @Test
@@ -199,7 +207,8 @@ public class EquipmentResourceIT {
             .name(UPDATED_NAME)
             .equipmentTypeID(UPDATED_EQUIPMENT_TYPE_ID)
             .status(UPDATED_STATUS)
-            .description(UPDATED_DESCRIPTION);
+            .description(UPDATED_DESCRIPTION)
+            .qrcode(UPDATED_QRCODE);
 
         restEquipmentMockMvc.perform(put("/api/equipment")
             .contentType(MediaType.APPLICATION_JSON)
@@ -215,6 +224,7 @@ public class EquipmentResourceIT {
         assertThat(testEquipment.getEquipmentTypeID()).isEqualTo(UPDATED_EQUIPMENT_TYPE_ID);
         assertThat(testEquipment.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testEquipment.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testEquipment.getQrcode()).isEqualTo(UPDATED_QRCODE);
     }
 
     @Test

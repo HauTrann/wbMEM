@@ -20,7 +20,8 @@
       "name": "Name",
       "equipmentTypeID": "Equipment Type ID",
       "status": "Status",
-      "description": "Description"
+      "description": "Description",
+      "qrcode": "Qrcode"
     }
   }
 }

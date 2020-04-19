@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-import java.util.UUID;
 
 /**
  * Service Implementation for managing {@link Equipment}.
@@ -38,9 +37,6 @@ public class EquipmentServiceImpl implements EquipmentService {
     @Override
     public Equipment save(Equipment equipment) {
         log.debug("Request to save Equipment : {}", equipment);
-        if (equipment.getId() == null) {
-            equipment.setQrcode(UUID.randomUUID().toString());
-        }
         return equipmentRepository.save(equipment);
     }
 
