@@ -2,9 +2,9 @@
   "medicalDeviceMngApp": {
     "medicalSupplies": {
       "home": {
-        "title": "Medical Supplies",
-        "createLabel": "Thêm mới một Medical Supplies",
-        "createOrEditLabel": "Thêm mới hoặc cập nhật Medical Supplies",
+        "title": "Vật tư",
+        "createLabel": "Thêm mới một vật tư",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật vật tư",
         "notFound": "No Medical Supplies found"
       },
       "created": "Một Medical Supplies mới được tạo với định danh {{ param }}",

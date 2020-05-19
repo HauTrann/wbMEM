@@ -68,7 +68,7 @@ export const medicalSuppliesRoute: Routes = [
       medicalSupplies: MedicalSuppliesResolve
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.USER_MANAGER],
       pageTitle: 'medicalDeviceMngApp.medicalSupplies.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -80,7 +80,7 @@ export const medicalSuppliesRoute: Routes = [
       medicalSupplies: MedicalSuppliesResolve
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.USER_MANAGER],
       pageTitle: 'medicalDeviceMngApp.medicalSupplies.home.title'
     },
     canActivate: [UserRouteAccessService]

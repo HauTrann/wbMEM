@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 import { IDepartment, Department } from 'app/shared/model/department.model';
 import { DepartmentService } from './department.service';
+import { UtilsService } from 'app/entities/utils/utils.service';
 
 @Component({
   selector: 'jhi-department-update',
@@ -14,6 +15,7 @@ import { DepartmentService } from './department.service';
 })
 export class DepartmentUpdateComponent implements OnInit {
   isSaving = false;
+  statuss: any[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -22,12 +24,18 @@ export class DepartmentUpdateComponent implements OnInit {
     status: []
   });
 
-  constructor(protected departmentService: DepartmentService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected departmentService: DepartmentService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    public utilsService: UtilsService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ department }) => {
       this.updateForm(department);
     });
+    this.statuss = this.utilsService.statuss;
   }
 
   updateForm(department: IDepartment): void {

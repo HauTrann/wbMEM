@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 import { IEquipmentType, EquipmentType } from 'app/shared/model/equipment-type.model';
 import { EquipmentTypeService } from './equipment-type.service';
+import { UtilsService } from 'app/entities/utils/utils.service';
 
 @Component({
   selector: 'jhi-equipment-type-update',
@@ -23,7 +24,12 @@ export class EquipmentTypeUpdateComponent implements OnInit {
     status: []
   });
 
-  constructor(protected equipmentTypeService: EquipmentTypeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected equipmentTypeService: EquipmentTypeService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    public utilsService: UtilsService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ equipmentType }) => {

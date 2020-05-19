@@ -8,9 +8,10 @@ import { EquipmentUpdateComponent } from './equipment-update.component';
 import { EquipmentDeleteDialogComponent } from './equipment-delete-dialog.component';
 import { equipmentRoute } from './equipment.route';
 import { QRCodeModule } from 'angular2-qrcode';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
-  imports: [MedicalDeviceMngSharedModule, RouterModule.forChild(equipmentRoute), QRCodeModule],
+  imports: [MedicalDeviceMngSharedModule, RouterModule.forChild(equipmentRoute), QRCodeModule, NgSelectModule],
   declarations: [EquipmentComponent, EquipmentDetailComponent, EquipmentUpdateComponent, EquipmentDeleteDialogComponent],
   entryComponents: [EquipmentDeleteDialogComponent]
 })

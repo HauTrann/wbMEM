@@ -15,9 +15,12 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * A user.
@@ -84,6 +87,21 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "reset_date")
     private Instant resetDate = null;
+
+    @Column(name = "department_id")
+    private Long departmentID;
+
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "code")
+    private String code;
+
+    @Column(name = "vice")
+    private String vice;
 
     @JsonIgnore
     @ManyToMany
@@ -200,6 +218,62 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.authorities = authorities;
     }
 
+    public Long getDepartmentid() {
+        return departmentID;
+    }
+
+    public void setDepartmentid(Long departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public Long getDepartmentID() {
+        return departmentID;
+    }
+
+    public void setDepartmentID(Long departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getVice() {
+        return vice;
+    }
+
+    public void setVice(String vice) {
+        this.vice = vice;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -223,10 +297,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
+            ", departmentID='" + departmentID + '\'' +
+            ", dateOfBirth='" + dateOfBirth + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+            ", code='" + code + '\'' +
+            ", vice='" + vice + '\'' +
             "}";
     }
 }

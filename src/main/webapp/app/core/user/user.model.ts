@@ -1,3 +1,5 @@
+import { Moment } from 'moment';
+
 export interface IUser {
   id?: any;
   login?: string;
@@ -12,6 +14,12 @@ export interface IUser {
   lastModifiedBy?: string;
   lastModifiedDate?: Date;
   password?: string;
+  departmentID?: number;
+  dateOfBirth?: Moment;
+  phoneNumber?: string;
+  code?: string;
+  vice?: string;
+  fileBase64?: string;
 }
 
 export class User implements IUser {
@@ -28,6 +36,12 @@ export class User implements IUser {
     public createdDate?: Date,
     public lastModifiedBy?: string,
     public lastModifiedDate?: Date,
-    public password?: string
+    public password?: string,
+    public departmentID?: number,
+    public dateOfBirth?: Moment,
+    public phoneNumber?: string,
+    public code?: string,
+    public vice?: string,
+    public fileBase64?: string
   ) {}
 }

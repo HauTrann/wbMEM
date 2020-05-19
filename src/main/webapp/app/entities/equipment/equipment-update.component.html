@@ -1,16 +1,23 @@
 <div class="row justify-content-center">
     <div class="col-8">
+        <h2 id="jhi-department-heading">Rhiết bị Y Tế</h2>
+        <div>
+            <label>Ảnh thiết bị</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" style="font-size: smaller" id="inputGroupFile" [(ngModel)]="file" (change)="changeFiles($event)">
+                </div>
+            </div>
+        </div>
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-equipment-heading" jhiTranslate="medicalDeviceMngApp.equipment.home.createOrEditLabel">Create or edit a Equipment</h2>
-
+<!--            <h2 id="jhi-equipment-heading" jhiTranslate="medicalDeviceMngApp.equipment.home.createOrEditLabel">Create or edit a Equipment</h2>-->
             <div>
                 <jhi-alert-error></jhi-alert-error>
 
-                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                <!--<div class="form-group" [hidden]="!editForm.get('id')!.value">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
-                </div>
-
+                </div>-->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="medicalDeviceMngApp.equipment.code" for="field_code">Code</label>
                     <input type="text" class="form-control" name="code" id="field_code"
@@ -23,16 +30,36 @@
                            formControlName="name"/>
                 </div>
 
-                <div class="form-group">
+                <label>Loại thiết bị</label>
+                <ng-select [items]="equipmentTypes"
+                           id="equipmentTypes"
+                           name="equipmentTypes"
+                           bindLabel="name"
+                           bindValue="id"
+                           placeholder="Chọn loại thiết bị"
+                           formControlName="equipmentTypeID"
+                           style="border-left: none"
+                           [required]="true"
+                >
+                </ng-select>
+                <div *ngIf="editForm.get('equipmentTypeID')!.invalid && (editForm.get('equipmentTypeID')!.dirty || editForm.get('equipmentTypeID')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('equipmentTypeID')?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <!--<div class="form-group">
                     <label class="form-control-label" jhiTranslate="medicalDeviceMngApp.equipment.equipmentTypeID" for="field_equipmentTypeID">Equipment Type ID</label>
                     <input type="number" class="form-control" name="equipmentTypeID" id="field_equipmentTypeID"
                            formControlName="equipmentTypeID"/>
-                </div>
+                </div>-->
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="medicalDeviceMngApp.equipment.status" for="field_status">Status</label>
-                    <input type="number" class="form-control" name="status" id="field_status"
-                           formControlName="status"/>
+                    <select class="form-control" name="authority" formControlName="status">
+                        <option *ngFor="let status of utilsService.statuss" [value]="status.status"  id="field_status">{{ status.name }}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -43,7 +70,7 @@
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="medicalDeviceMngApp.equipment.qrcode" for="field_qrcode">Qrcode</label>
-                    <input type="text" class="form-control" name="qrcode" id="field_qrcode"
+                    <input type="text" class="form-control" name="qrcode" id="field_qrcode" disabled
                            formControlName="qrcode"/>
                 </div>
             </div>

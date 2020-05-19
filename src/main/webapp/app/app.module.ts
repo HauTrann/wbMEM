@@ -15,6 +15,9 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { SidebarComponent } from 'app/layouts/sidebar/sidebar.component';
+import { NavbarBottomComponent } from 'app/layouts/navbar-bottom/navbar-bottom.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 
 @NgModule({
   imports: [
@@ -29,12 +32,14 @@ import { SidebarComponent } from 'app/layouts/sidebar/sidebar.component';
   declarations: [
     MainComponent,
     NavbarComponent,
+    NavbarBottomComponent,
     SidebarComponent,
     ErrorComponent,
     PageRibbonComponent,
     ActiveMenuDirective,
     FooterComponent
   ],
+  providers: [DeviceDetectorService],
   bootstrap: [MainComponent]
 })
 export class MedicalDeviceMngAppModule {}

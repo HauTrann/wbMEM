@@ -6,6 +6,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { AccountService } from 'app/core/auth/account.service';
 import { JhiEventManager } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'jhi-main',
@@ -23,7 +24,8 @@ export class MainComponent implements OnInit {
     private router: Router,
     private translateService: TranslateService,
     rootRenderer: RendererFactory2,
-    private eventManager: JhiEventManager
+    private eventManager: JhiEventManager,
+    public deviceService: DeviceDetectorService
   ) {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
   }

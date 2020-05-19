@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Router, Routes } from '@angular/router';
 import { JhiResolvePagingParams } from 'ng-jhipster';
-import { Observable, of, EMPTY } from 'rxjs';
+import { EMPTY, Observable, of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
 import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
-import { IDepartment, Department } from 'app/shared/model/department.model';
+import { Department, IDepartment } from 'app/shared/model/department.model';
 import { DepartmentService } from './department.service';
 import { DepartmentComponent } from './department.component';
 import { DepartmentDetailComponent } from './department-detail.component';
@@ -68,7 +68,7 @@ export const departmentRoute: Routes = [
       department: DepartmentResolve
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.ADMIN],
       pageTitle: 'medicalDeviceMngApp.department.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -80,7 +80,7 @@ export const departmentRoute: Routes = [
       department: DepartmentResolve
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.ADMIN],
       pageTitle: 'medicalDeviceMngApp.department.home.title'
     },
     canActivate: [UserRouteAccessService]

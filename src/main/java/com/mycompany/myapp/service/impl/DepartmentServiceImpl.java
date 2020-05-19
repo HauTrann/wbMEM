@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -51,6 +52,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     public Page<Department> findAll(Pageable pageable) {
         log.debug("Request to get all Departments");
         return departmentRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Department> findAll() {
+        log.debug("Request to get all Departments");
+        return departmentRepository.findAll();
     }
 
     /**

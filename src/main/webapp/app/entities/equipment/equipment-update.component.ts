@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 
 import { IEquipment, Equipment } from 'app/shared/model/equipment.model';
 import { EquipmentService } from './equipment.service';
+import { EquipmentType } from 'app/shared/model/equipment-type.model';
+import { EquipmentTypeService } from 'app/entities/equipment-type/equipment-type.service';
+import { UtilsService } from 'app/entities/utils/utils.service';
 
 @Component({
   selector: 'jhi-equipment-update',
@@ -14,6 +17,8 @@ import { EquipmentService } from './equipment.service';
 })
 export class EquipmentUpdateComponent implements OnInit {
   isSaving = false;
+  equipmentTypes: EquipmentType[] | null = [];
+  file: any;
 
   editForm = this.fb.group({
     id: [],
@@ -25,11 +30,20 @@ export class EquipmentUpdateComponent implements OnInit {
     qrcode: []
   });
 
-  constructor(protected equipmentService: EquipmentService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected equipmentService: EquipmentService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    private equipmentTypeService: EquipmentTypeService,
+    public utilsService: UtilsService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ equipment }) => {
       this.updateForm(equipment);
+    });
+    this.equipmentTypeService.query().subscribe(res => {
+      this.equipmentTypes = res.body;
     });
   }
 
@@ -86,5 +100,15 @@ export class EquipmentUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  changeFiles(envent: any): void {
+    if (envent.target) {
+      const file = envent.target.files;
+      this.file = null;
+      if (file && file.length) {
+        this.file = file[0];
+      }
+    }
   }
 }

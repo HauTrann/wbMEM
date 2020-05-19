@@ -32,6 +32,10 @@ export class DepartmentService {
     return this.http.get<IDepartment[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
+  getAll(): Observable<EntityArrayResponseType> {
+    return this.http.get<IDepartment[]>(this.resourceUrl + 'All', { params: {}, observe: 'response' });
+  }
+
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }

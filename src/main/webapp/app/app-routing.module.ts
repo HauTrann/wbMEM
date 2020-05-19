@@ -7,8 +7,9 @@ import { Authority } from 'app/shared/constants/authority.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { sidebarRoute } from 'app/layouts/sidebar/sidebar.route';
+import { navbarBottomRoute } from 'app/layouts/navbar-bottom/navbar-bottom.route';
 
-const LAYOUT_ROUTES = [navbarRoute, sidebarRoute, ...errorRoute];
+const LAYOUT_ROUTES = [navbarRoute, sidebarRoute, navbarBottomRoute, ...errorRoute];
 
 @NgModule({
   imports: [

@@ -10,6 +10,7 @@ import { IDepartment } from 'app/shared/model/department.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { DepartmentService } from './department.service';
 import { DepartmentDeleteDialogComponent } from './department-delete-dialog.component';
+import { UtilsService } from 'app/entities/utils/utils.service';
 
 @Component({
   selector: 'jhi-department',
@@ -30,7 +31,8 @@ export class DepartmentComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public utilsService: UtilsService
   ) {}
 
   loadPage(page?: number): void {

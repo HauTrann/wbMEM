@@ -7,9 +7,10 @@ import { UserManagementDetailComponent } from './user-management-detail.componen
 import { UserManagementUpdateComponent } from './user-management-update.component';
 import { UserManagementDeleteDialogComponent } from './user-management-delete-dialog.component';
 import { userManagementRoute } from './user-management.route';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
-  imports: [MedicalDeviceMngSharedModule, RouterModule.forChild(userManagementRoute)],
+  imports: [MedicalDeviceMngSharedModule, RouterModule.forChild(userManagementRoute), NgSelectModule],
   declarations: [
     UserManagementComponent,
     UserManagementDetailComponent,

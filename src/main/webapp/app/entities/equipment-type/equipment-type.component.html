@@ -4,7 +4,7 @@
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-equipment-type" [routerLink]="['/equipment-type/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="medicalDeviceMngApp.equipmentType.home.createLabel">
+            <span  jhiTranslate="entity.action.create">
             Create a new Equipment Type
             </span>
         </button>
@@ -19,10 +19,10 @@
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="equipmentTypes?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped table-dark" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="code"><span jhiTranslate="medicalDeviceMngApp.equipmentType.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="name"><span jhiTranslate="medicalDeviceMngApp.equipmentType.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="description"><span jhiTranslate="medicalDeviceMngApp.equipmentType.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
@@ -31,12 +31,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let equipmentType of equipmentTypes ;trackBy: trackId">
-                    <td><a [routerLink]="['/equipment-type', equipmentType.id, 'view']">{{ equipmentType.id }}</a></td>
+                <tr *ngFor="let equipmentType of equipmentTypes ;trackBy: trackId; let i = index">
+<!--                    <td><a [routerLink]="['/equipment-type', equipmentType.id, 'view']">{{ equipmentType.id }}</a></td>-->
                     <td>{{ equipmentType.code }}</td>
                     <td>{{ equipmentType.name }}</td>
                     <td>{{ equipmentType.description }}</td>
-                    <td>{{ equipmentType.status }}</td>
+                    <td class="text-center">
+                        <div class="custom-control custom-checkbox">
+                            <input [disabled]="true" type="checkbox" class="custom-control-input" name="{{'status' + i}}"
+                                   id="{{'status' + i}}" [ngModel]="equipmentType.status === 1">
+                            <label class="custom-control-label" for="{{'status' + i}}"></label>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

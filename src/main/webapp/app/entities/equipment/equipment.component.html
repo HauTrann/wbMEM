@@ -4,7 +4,7 @@
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-equipment" [routerLink]="['/equipment/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="medicalDeviceMngApp.equipment.home.createLabel">
+            <span  jhiTranslate="entity.action.create">
             Create a new Equipment
             </span>
         </button>
@@ -19,30 +19,36 @@
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="equipment?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped table-dark" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="code"><span jhiTranslate="medicalDeviceMngApp.equipment.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="name"><span jhiTranslate="medicalDeviceMngApp.equipment.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="equipmentTypeID"><span jhiTranslate="medicalDeviceMngApp.equipment.equipmentTypeID">Equipment Type ID</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="equipmentTypeID"><span jhiTranslate="medicalDeviceMngApp.equipment.equipmentTypeID">Equipment Type ID</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="status"><span jhiTranslate="medicalDeviceMngApp.equipment.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="medicalDeviceMngApp.equipment.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="qrcode"><span jhiTranslate="medicalDeviceMngApp.equipment.qrcode">Qrcode</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="medicalDeviceMngApp.equipment.description">Description</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="qrcode"><span jhiTranslate="medicalDeviceMngApp.equipment.qrcode">Qrcode</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let equipment of equipment ;trackBy: trackId">
-                    <td><a [routerLink]="['/equipment', equipment.id, 'view']">{{ equipment.id }}</a></td>
+                <tr *ngFor="let equipment of equipment ;trackBy: trackId; let i = index">
+<!--                    <td><a [routerLink]="['/equipment', equipment.id, 'view']">{{ equipment.id }}</a></td>-->
                     <td>{{ equipment.code }}</td>
                     <td>{{ equipment.name }}</td>
-                    <td>{{ equipment.equipmentTypeID }}</td>
-                    <td>{{ equipment.status }}</td>
-                    <td>{{ equipment.description }}</td>
-                    <td>
-                        <qr-code *ngIf="equipment.qrcode" [value]="equipment.qrcode" [size]="100"></qr-code>
+<!--                    <td>{{ equipment.equipmentTypeID }}</td>-->
+                    <td class="text-center">
+                        <div class="custom-control custom-checkbox">
+                            <input [disabled]="true" type="checkbox" class="custom-control-input" name="{{'status' + i}}"
+                                   id="{{'status' + i}}" [ngModel]="equipment.status === 1">
+                            <label class="custom-control-label" for="{{'status' + i}}"></label>
+                        </div>
                     </td>
+<!--                    <td>{{ equipment.description }}</td>-->
+<!--                    <td>-->
+<!--                        <qr-code *ngIf="equipment.qrcode" [value]="equipment.qrcode" [size]="100"></qr-code>-->
+<!--                    </td>-->
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

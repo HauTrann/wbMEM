@@ -1,0 +1,27 @@
+.inf-content {
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}
+
+.custom-body {
+  background-color: darkslategrey;
+}
+
+.custom-body label {
+  color: white;
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  padding: 0px;
+  vertical-align: top;
+  border-top: none;
+}
+
+.color-w {
+  color: white;
+}

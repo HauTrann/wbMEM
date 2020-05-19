@@ -2,7 +2,7 @@
   "medicalDeviceMngApp": {
     "equipment": {
       "home": {
-        "title": "Equipment",
+        "title": "Thiết bị y tế",
         "createLabel": "Thêm mới một Equipment",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Equipment",
         "notFound": "No Equipment found"
@@ -16,11 +16,11 @@
       "detail": {
         "title": "Equipment"
       },
-      "code": "Code",
-      "name": "Name",
-      "equipmentTypeID": "Equipment Type ID",
-      "status": "Status",
-      "description": "Description",
+      "code": "Mã",
+      "name": "Tên",
+      "equipmentTypeID": "Loại thiết bị",
+      "status": "TT",
+      "description": "Mô tả",
       "qrcode": "Qrcode"
     }
   }

@@ -2,7 +2,7 @@
   "medicalDeviceMngApp": {
     "equipmentType": {
       "home": {
-        "title": "Equipment Types",
+        "title": "Loại thiết bị",
         "createLabel": "Thêm mới một Equipment Type",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Equipment Type",
         "notFound": "No Equipment Types found"
@@ -16,10 +16,10 @@
       "detail": {
         "title": "Equipment Type"
       },
-      "code": "Code",
-      "name": "Name",
-      "description": "Description",
-      "status": "Status"
+      "code": "Mã",
+      "name": "Tên",
+      "description": "Mô tả",
+      "status": "TT"
     }
   }
 }

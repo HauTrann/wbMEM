@@ -37,7 +37,7 @@ Logo styles
   width: 45px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+  background: url('../../../content/images/icons/icon192.png') no-repeat center center;
   background-size: contain;
 }
 
@@ -58,14 +58,14 @@ Logo styles
 
 .hide {
   visibility: hidden;
-  transition: 2s;
+  transition: 0.5s;
   color: #a5a8aa;
 }
 
 @media (min-width: 768px) {
   .hide {
     visibility: visible;
-    transition: 2s;
+    transition: 0.5s;
     color: #a5a8aa;
   }
 }

@@ -10,6 +10,7 @@ import { IEquipment } from 'app/shared/model/equipment.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { EquipmentService } from './equipment.service';
 import { EquipmentDeleteDialogComponent } from './equipment-delete-dialog.component';
+import { UtilsService } from 'app/entities/utils/utils.service';
 
 @Component({
   selector: 'jhi-equipment',
@@ -30,7 +31,8 @@ export class EquipmentComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public utilsService: UtilsService
   ) {}
 
   loadPage(page?: number): void {

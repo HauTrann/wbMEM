@@ -9,6 +9,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'jhi-navbar',
@@ -32,7 +33,8 @@ export class NavbarComponent implements OnInit {
     private loginModalService: LoginModalService,
     private profileService: ProfileService,
     private router: Router,
-    private eventManager: JhiEventManager
+    private eventManager: JhiEventManager,
+    public deviceService: DeviceDetectorService
   ) {
     this.version = VERSION ? (VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION) : '';
   }
@@ -58,6 +60,7 @@ export class NavbarComponent implements OnInit {
   }
 
   login(): void {
+    this.isNavbarCollapsed = true;
     this.loginModalService.open();
   }
 

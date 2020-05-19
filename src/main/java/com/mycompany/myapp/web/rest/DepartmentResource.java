@@ -98,6 +98,18 @@ public class DepartmentResource {
     }
 
     /**
+     * {@code GET  /departments} : get all the departments.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of departments in body.
+     */
+    @GetMapping("/departmentsAll")
+    public ResponseEntity<List<Department>> getAllDepartmentsAll() {
+        log.debug("REST request to get a page of Departments");
+        List<Department> departments = departmentService.findAll();
+        return new ResponseEntity<>(departments, HttpStatus.OK);
+    }
+
+    /**
      * {@code GET  /departments/:id} : get the "id" department.
      *
      * @param id the id of the department to retrieve.

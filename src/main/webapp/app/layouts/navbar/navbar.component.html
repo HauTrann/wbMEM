@@ -1,13 +1,12 @@
 <nav class="navbar navbar-dark navbar-expand-md bg-dark custom" [class.panel-body-1] = "!showSb">
-    <a *ngIf="showSb" style="width: 290px" class="navbar-brand logo pad-lef-20" routerLink="/" (click)="collapseNavbar()">
+    <a *ngIf="showSb" class="navbar-brand logo pad-lef-20" routerLink="/" (click)="collapseNavbar()"> <!--style="width: 290px"-->
         <span class="logo-img"></span> <!--jhiTranslate="global.title"-->
-        <span class="navbar-title"><!--MedicalEquipmentManager--></span> EQM<span
-        class="navbar-version">{{ version }}</span>
+<!--        <span class="navbar-title">Medical Equipment Manager</span>-->
     </a>
     <a *ngIf="!showSb" class="navbar-brand logo pad-lef-20" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span> <!--jhiTranslate="global.title"-->
     </a>
-    <a (click)="showSidebar()" class="hide">
+    <a *ngIf="!deviceService.isMobile()" (click)="showSidebar()" [style]="this.showSb?'margin-left: 180px;':'margin-left: 0px;'" class="hide">
         <fa-icon icon="bars"></fa-icon>
     </a>
     <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +15,13 @@
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
     </a>
-    <div class="navbar-collapse collapse custom-dropdown-toggle" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
+    <div *ngIf="deviceService.isMobile()" class="search-container">
+        <form>
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div *ngIf="deviceService.isDesktop()" class="navbar-collapse collapse custom-dropdown-toggle" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">

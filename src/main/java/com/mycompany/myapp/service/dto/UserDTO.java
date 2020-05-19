@@ -7,6 +7,8 @@ import com.mycompany.myapp.domain.User;
 
 import javax.validation.constraints.*;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -35,6 +37,12 @@ public class UserDTO {
     @Size(max = 256)
     private String imageUrl;
 
+    private Long departmentID;
+    private LocalDate dateOfBirth;
+    private String phoneNumber;
+    private String code;
+    private String vice;
+
     private boolean activated = false;
 
     @Size(min = 2, max = 10)
@@ -60,6 +68,11 @@ public class UserDTO {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
+        this.departmentID = user.getDepartmentid();
+        this.dateOfBirth = user.getDateOfBirth();
+        this.phoneNumber = user.getPhoneNumber();
+        this.code = user.getCode();
+        this.vice = user.getVice();
         this.activated = user.getActivated();
         this.imageUrl = user.getImageUrl();
         this.langKey = user.getLangKey();
@@ -176,6 +189,46 @@ public class UserDTO {
         this.authorities = authorities;
     }
 
+    public Long getDepartmentID() {
+        return departmentID;
+    }
+
+    public void setDepartmentID(Long departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getVice() {
+        return vice;
+    }
+
+    public void setVice(String vice) {
+        this.vice = vice;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
@@ -183,6 +236,7 @@ public class UserDTO {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
+            ", departmentID='" + departmentID + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +

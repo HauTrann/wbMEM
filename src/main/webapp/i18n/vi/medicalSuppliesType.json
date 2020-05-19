@@ -2,9 +2,9 @@
   "medicalDeviceMngApp": {
     "medicalSuppliesType": {
       "home": {
-        "title": "Medical Supplies Types",
-        "createLabel": "Thêm mới một Medical Supplies Type",
-        "createOrEditLabel": "Thêm mới hoặc cập nhật Medical Supplies Type",
+        "title": "Loại vật tư",
+        "createLabel": "Thêm mới một loại vật tư",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật loại vật tư",
         "notFound": "No Medical Supplies Types found"
       },
       "created": "Một Medical Supplies Type mới được tạo với định danh {{ param }}",

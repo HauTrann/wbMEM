@@ -781,6 +781,7 @@
                         <!-- Force alphabetical order to have a reproducible build -->
                         <runOrder>alphabetical</runOrder>
                         <reportsDirectory>${junit.utReportFolder}</reportsDirectory>
+                        <skipTests>true</skipTests>
                         <excludes>
                             <exclude>**/*IT*</exclude>
                             <exclude>**/*IntTest*</exclude>
@@ -798,6 +799,7 @@
                         <!-- Force alphabetical order to have a reproducible build -->
                         <runOrder>alphabetical</runOrder>
                         <reportsDirectory>${junit.itReportFolder}</reportsDirectory>
+                        <skipTests>true</skipTests>
                         <includes>
                             <include>**/*IT*</include>
                             <include>**/*IntTest*</include>
@@ -994,7 +996,7 @@
                                     <arguments>install</arguments>
                                 </configuration>
                             </execution>
-                            <execution>
+                            <!--<execution>
                                 <id>webpack build test</id>
                                 <goals>
                                     <goal>npm</goal>
@@ -1004,7 +1006,7 @@
                                     <arguments>run webpack:test</arguments>
                                     <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
-                            </execution>
+                            </execution>-->
                             <execution>
                                 <id>webpack build prod</id>
                                 <goals>

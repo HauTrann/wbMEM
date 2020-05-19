@@ -1,0 +1,79 @@
+<div class="container bootstrap snippet">
+    <div class="panel-body inf-content custom-body">
+        <div class="row">
+            <div class="col-md-4" style="padding-top: 10px">
+                <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/user-453533-fdadfd.png" data-original-title="Usuario">
+                <img *ngIf="imagePath" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" [src]="imagePath">
+            </div>
+            <div class="col-md-6">
+                <label> {{account?.firstName + '' + account?.lastName}}</label><br>
+                <div class="table-responsive">
+                    <table class="table table-condensed table-responsive table-user-information">
+                        <tbody>
+                        <tr>
+                            <td class="color-w">
+                                Ngày sinh
+                            </td>
+                            <td class="text-primary">
+                                {{account?.dateOfBirth}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-w">
+                                Số ĐT
+                            </td>
+                            <td class="text-primary">
+                                {{account?.phoneNumber}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="color-w">
+                                Email
+                            </td>
+                            <td class="text-primary">
+                                {{account?.email}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body inf-content custom-body">
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table table-condensed table-responsive table-user-information">
+                    <tbody>
+                    <tr>
+                        <td class="color-w">
+                            Mã nhân viên
+                        </td>
+                        <td class="text-primary">
+                            {{account?.code}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="color-w">
+                            Phòng ban
+                        </td>
+                        <td class="text-primary">
+                            {{account?.departmentID}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="color-w">
+                            Chức vụ
+                        </td>
+                        <td class="text-primary">
+                            {{account?.vice}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info"> Sửa đổi thông tin</button>
+    <button (click)="logout()" class="btn btn-danger"> Đăng xuất</button>
+</div>

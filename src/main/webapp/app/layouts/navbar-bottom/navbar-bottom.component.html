@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light navbar-expand-md bg-dark custom">
+    <button (click)="clickButton(SELECT.MENU)" class="button-custom" [class.selected] = "selected === SELECT.MENU">
+        <span class="row center-icon">
+            <fa-icon icon="th-list"></fa-icon>
+        </span>
+        <span class="row">Menu</span>
+    </button>
+    <button (click)="clickButton(SELECT.NOTIFICATION)" class="button-custom" [class.selected] = "selected === SELECT.NOTIFICATION">
+        <span class="row center-icon">
+            <fa-icon icon="bell"></fa-icon>
+        </span>
+        <span class="row">Thông báo</span>
+    </button>
+    <button (click)="clickButton(SELECT.ACCOUNT)" class="button-custom" [class.selected] = "selected === SELECT.MENU">
+        <span class="row center-icon">
+            <fa-icon icon="user"></fa-icon>
+        </span>
+        <span class="row">Tài khoản</span>
+    </button>
+</nav>
