@@ -1,71 +1,70 @@
 <div>
     <div class="ptitle">
-        <span jhiTranslate="medicalDeviceMngApp.department.home.title">Departments</span>
+        <span jhiTranslate="medicalDeviceMngApp.organizationUnit.home.title">Organization Units</span>
     </div>
     <div>
-        <a [routerLink]="['/department/new']"><i class="mdi mdi-plus"></i> <span>Thêm</span></a>
+        <a [routerLink]="['/organization-unit/new']"><i class="mdi mdi-plus"></i> <span>Thêm</span></a>
     </div>
 </div>
 <div>
     <!--<h2 id="page-heading">
-        <span jhiTranslate="medicalDeviceMngApp.department.home.title">Departments</span>
+        <span jhiTranslate="medicalDeviceMngApp.organizationUnit.home.title">Organization Units</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-department" [routerLink]="['/department/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-organization-unit" [routerLink]="['/organization-unit/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="entity.action.create">
-            Create a new Department
+            <span  jhiTranslate="medicalDeviceMngApp.organizationUnit.home.createLabel">
+            Create a new Organization Unit
             </span>
         </button>
     </h2>-->
-
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
 
-    <div class="alert alert-warning" id="no-result" *ngIf="departments?.length === 0">
-        <span jhiTranslate="medicalDeviceMngApp.department.home.notFound">No departments found</span>
+    <div class="alert alert-warning" id="no-result" *ngIf="organizationUnits?.length === 0">
+        <span jhiTranslate="medicalDeviceMngApp.organizationUnit.home.notFound">No organizationUnits found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="departments?.length > 0">
+    <div class="table-responsive" id="entities" *ngIf="organizationUnits?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-<!--                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>-->
-                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="medicalDeviceMngApp.department.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="medicalDeviceMngApp.department.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="medicalDeviceMngApp.department.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="medicalDeviceMngApp.organizationUnit.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="medicalDeviceMngApp.organizationUnit.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="medicalDeviceMngApp.organizationUnit.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="medicalDeviceMngApp.organizationUnit.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let department of departments ;trackBy: trackId ; let i = index">
-<!--                    <td><a [routerLink]="['/department', department.id, 'view']">{{ department.id }}</a></td>-->
-                    <td>{{ department.name }}</td>
-                    <td>{{ department.description }}</td>
+                <tr *ngFor="let organizationUnit of organizationUnits ;trackBy: trackId; let i = index;">
+                    <td>{{ organizationUnit.code }}</td>
+                    <td>{{ organizationUnit.name }}</td>
+                    <td>{{ organizationUnit.description }}</td>
                     <td class="text-center">
                         <div class="custom-control custom-checkbox">
                             <input [disabled]="true" type="checkbox" class="custom-control-input" name="{{'status' + i}}"
-                                   id="{{'status' + i}}" [ngModel]="department.status === 1">
+                                   id="{{'status' + i}}" [ngModel]="organizationUnit.status === 1">
                             <label class="custom-control-label" for="{{'status' + i}}"></label>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/department', department.id, 'view']"
+                                    [routerLink]="['/organization-unit', organizationUnit.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/department', department.id, 'edit']"
+                                    [routerLink]="['/organization-unit', organizationUnit.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                             </button>
 
-                            <button type="submit" (click)="delete(department)"
+                            <button type="submit" (click)="delete(organizationUnit)"
                                     class="btn btn-danger btn-sm">
                                 <fa-icon icon="times"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
@@ -76,13 +75,13 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="4"> Số dòng : {{departments?.length}}</td>
+                <td colspan="5"> Số dòng : {{organizationUnits?.length}}</td>
             </tr>
             </tfoot>
         </table>
     </div>
 
-    <div *ngIf="departments?.length > 0">
+    <div *ngIf="organizationUnits?.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
         </div>

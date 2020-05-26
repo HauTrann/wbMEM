@@ -1,18 +1,18 @@
 <div>
-    <h2>
-        <span id="user-management-page-heading" jhiTranslate="userManagement.home.title">Users</span>
-
-        <button class="btn btn-primary float-right jh-create-entity" [routerLink]="['./new']">
-            <fa-icon icon="plus"></fa-icon> <span jhiTranslate="entity.action.create">Create a new User</span>
-        </button>
-    </h2>
-
+    <div class="ptitle">
+        <span>QUẢN LÝ TÀI KHOẢN</span>
+    </div>
+    <div>
+        <a [routerLink]="['/admin/user-management/new']"><i class="mdi mdi-plus"></i> <span>Thêm</span></a>
+    </div>
+</div>
+<div>
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
 
     <div class="table-responsive" *ngIf="users">
-        <table class="table table-striped table-dark" aria-describedby="user-management-page-heading">
+        <table class="table table-striped" aria-describedby="user-management-page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
 <!--                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>-->
@@ -73,6 +73,11 @@
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5"> Số dòng : {{users?.length}}</td>
+            </tr>
+            </tfoot>
         </table>
     </div>
 

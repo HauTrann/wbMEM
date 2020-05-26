@@ -82,10 +82,10 @@ export class NavbarBottomComponent implements OnInit {
   select(): void {}
 
   clickButton(select: any): void {
-    /*this.eventManager.broadcast({
+    /* this.eventManager.broadcast({
       name: 'Select',
       content: select
-    });*/
+    }); */
     switch (select) {
       case 'MENU':
         this.router.navigate(['/menu']);

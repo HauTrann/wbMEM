@@ -9,12 +9,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Department.
+ * A OrganizationUnit.
  */
 @Entity
-@Table(name = "department")
+@Table(name = "organization_unit")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Department implements Serializable {
+public class OrganizationUnit implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,8 +23,8 @@ public class Department implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "organization_unit_id")
-    private Long organizationUnitID;
+    @Column(name = "code")
+    private String code;
 
     @Column(name = "name")
     private String name;
@@ -44,11 +44,24 @@ public class Department implements Serializable {
         this.id = id;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public OrganizationUnit code(String code) {
+        this.code = code;
+        return this;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Department name(String name) {
+    public OrganizationUnit name(String name) {
         this.name = name;
         return this;
     }
@@ -61,7 +74,7 @@ public class Department implements Serializable {
         return description;
     }
 
-    public Department description(String description) {
+    public OrganizationUnit description(String description) {
         this.description = description;
         return this;
     }
@@ -74,17 +87,9 @@ public class Department implements Serializable {
         return status;
     }
 
-    public Department status(Integer status) {
+    public OrganizationUnit status(Integer status) {
         this.status = status;
         return this;
-    }
-
-    public Long getOrganizationUnitID() {
-        return organizationUnitID;
-    }
-
-    public void setOrganizationUnitID(Long organizationUnitID) {
-        this.organizationUnitID = organizationUnitID;
     }
 
     public void setStatus(Integer status) {
@@ -97,10 +102,10 @@ public class Department implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Department)) {
+        if (!(o instanceof OrganizationUnit)) {
             return false;
         }
-        return id != null && id.equals(((Department) o).id);
+        return id != null && id.equals(((OrganizationUnit) o).id);
     }
 
     @Override
@@ -110,9 +115,9 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department{" +
+        return "OrganizationUnit{" +
             "id=" + getId() +
-            "organizationUnitID=" + getOrganizationUnitID() +
+            ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
             ", status=" + getStatus() +

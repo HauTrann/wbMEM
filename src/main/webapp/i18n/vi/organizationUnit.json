@@ -1,0 +1,25 @@
+{
+  "medicalDeviceMngApp": {
+    "organizationUnit": {
+      "home": {
+        "title": "Danh sách bệnh viện",
+        "createLabel": "Thêm mới một Organization Unit",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Organization Unit",
+        "notFound": "No Organization Units found"
+      },
+      "created": "Một Organization Unit mới được tạo với định danh {{ param }}",
+      "updated": "Một Organization Unit cập nhật với định danh {{ param }}",
+      "deleted": "Một Organization Unit đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Organization Unit {{ id }}?"
+      },
+      "detail": {
+        "title": "Organization Unit"
+      },
+      "code": "Mã",
+      "name": "Tên",
+      "description": "Mô tả",
+      "status": "Trạng thái"
+    }
+  }
+}

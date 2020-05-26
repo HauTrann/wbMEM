@@ -234,7 +234,43 @@ ui bootstrap tweaks
   padding-right: 0px;
   padding-left: 0px;
 }
+
 td {
   padding-left: 3px !important;
   padding-right: 3px !important;
+}
+
+.ptitle {
+  font-weight: 900;
+  font-size: larger;
+  text-align: center;
+}
+
+.gr-toolbar {
+}
+
+th {
+  border: none !important;
+  border-right: 0.1px solid #adc8e6 !important;
+  border-top: 1px solid #adc8e6 !important;
+}
+
+thead th {
+  color: black;
+  font-size: 13px;
+  text-align: center !important;
+  font-weight: 500 !important;
+  background: #98b5d6 !important;
+}
+
+td {
+  border: none;
+  border-right: 0.1px solid #adc8e6 !important;
+  border-top: 1px solid #adc8e6 !important;
+  font-size: 14px !important;
+  padding: 3px !important;
+}
+
+tfoot {
+  background: #98b5d6 !important;
 }

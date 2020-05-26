@@ -13,6 +13,11 @@
             </a>
         </li>
         <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+            <a class="glyphicon glyphicon-home" routerLink="organization-unit" routerLinkActive="active">
+                <span>Danh sách các bệnh viện</span>
+            </a>
+        </li>
+        <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <a class="glyphicon glyphicon-home" routerLink="admin/user-management" routerLinkActive="active">
                 <span jhiTranslate="global.menu.admin.userManagement">User management</span>
             </a>
@@ -22,6 +27,12 @@
             <a class="glyphicon glyphicon-home" routerLink="department" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                 <span jhiTranslate="global.menu.entities.department">Department</span>
             </a>
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span><font color="#337AB7"> KHO</font>
+        </li>
+        <li>
+            <a routerLink="equipment-type"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Kho</a>
         </li>
         <li>
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span><font color="#337AB7"> TRANG THIẾT BỊ Y TẾ</font>

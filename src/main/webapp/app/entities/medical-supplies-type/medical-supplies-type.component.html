@@ -1,5 +1,13 @@
 <div>
-    <h2 id="page-heading">
+    <div class="ptitle">
+        <span jhiTranslate="medicalDeviceMngApp.medicalSuppliesType.home.title">Medical Supplies Types</span>
+    </div>
+    <div>
+        <a [routerLink]="['/medical-supplies-type/new']"><i class="mdi mdi-plus"></i> <span>Thêm</span></a>
+    </div>
+</div>
+<div>
+    <!--<h2 id="page-heading">
         <span jhiTranslate="medicalDeviceMngApp.medicalSuppliesType.home.title">Medical Supplies Types</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medical-supplies-type" [routerLink]="['/medical-supplies-type/new']">
@@ -8,7 +16,7 @@
             Create a new Medical Supplies Type
             </span>
         </button>
-    </h2>
+    </h2>-->
 
     <jhi-alert-error></jhi-alert-error>
 
@@ -19,10 +27,9 @@
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="medicalSuppliesTypes?.length > 0">
-        <table class="table table-striped table-dark" aria-describedby="page-heading">
+        <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="code"><span jhiTranslate="medicalDeviceMngApp.medicalSuppliesType.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="name"><span jhiTranslate="medicalDeviceMngApp.medicalSuppliesType.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="description"><span jhiTranslate="medicalDeviceMngApp.medicalSuppliesType.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
@@ -32,7 +39,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let medicalSuppliesType of medicalSuppliesTypes ;trackBy: trackId">
-                    <td><a [routerLink]="['/medical-supplies-type', medicalSuppliesType.id, 'view']">{{ medicalSuppliesType.id }}</a></td>
                     <td>{{ medicalSuppliesType.code }}</td>
                     <td>{{ medicalSuppliesType.name }}</td>
                     <td>{{ medicalSuppliesType.description }}</td>
@@ -62,6 +68,11 @@
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5"> Số dòng : {{medicalSuppliesTypes?.length}}</td>
+            </tr>
+            </tfoot>
         </table>
     </div>
 

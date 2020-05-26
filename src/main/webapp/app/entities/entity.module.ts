@@ -28,6 +28,10 @@ import { RouterModule } from '@angular/router';
         path: 'medical-supplies-type',
         loadChildren: () =>
           import('./medical-supplies-type/medical-supplies-type.module').then(m => m.MedicalDeviceMngMedicalSuppliesTypeModule)
+      },
+      {
+        path: 'organization-unit',
+        loadChildren: () => import('./organization-unit/organization-unit.module').then(m => m.MedicalDeviceMngOrganizationUnitModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

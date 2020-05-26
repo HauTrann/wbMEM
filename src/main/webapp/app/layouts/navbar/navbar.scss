@@ -46,14 +46,14 @@ Logo styles
   z-index: 9000;
   width: 100%;
   top: 0px;
-  background-color: #2d2727 !important;
-  height: 55px;
+  background-color: #f26f21 !important;
+  height: 45px;
   padding-right: 10px;
 }
 
 .custom-dropdown-toggle {
   width: 100%;
-  background-color: #2d2727 !important;
+  background-color: #f26f21 !important;
 }
 
 .hide {
@@ -68,4 +68,24 @@ Logo styles
     transition: 0.5s;
     color: #a5a8aa;
   }
+}
+
+.icon-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.showbt {
+  width: 250px;
+  background-color: white;
+  height: 100%;
+}
+
+.hidebt {
+  padding-left: 5px;
+  width: 55px;
+  background-color: white;
+  height: 100%;
 }
